@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.input.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.media.*?>
+
+<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.fernschulen.mediaplayer.FXMLController">
+  <children>
+    <MenuBar VBox.vgrow="NEVER">
+      <menus>
+        <Menu mnemonicParsing="false" text="Datei">
+          <items>
+            <MenuItem mnemonicParsing="false" onAction="#ladenKlick" text="Öffnen...">
+                     <accelerator>
+                        <KeyCodeCombination alt="UP" code="O" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator></MenuItem>
+            <MenuItem mnemonicParsing="false" onAction="#beendenKlick" text="Beenden" />
+          </items>
+        </Menu>
+        <Menu id="play_menu" fx:id="play_menu" mnemonicParsing="false" text="Wiedergabe">
+          <items>
+            <MenuItem mnemonicParsing="false" onAction="#pauseKlick" text="Pause" />
+            <MenuItem mnemonicParsing="false" onAction="#playKlick" text="Wiedergeben" />
+            <MenuItem mnemonicParsing="false" onAction="#stoppKlick" text="Stopp" />
+          </items>
+        </Menu>
+      </menus>
+    </MenuBar>
+      <ToolBar prefHeight="40.0" prefWidth="200.0">
+        <items>
+          <Button mnemonicParsing="false" onAction="#ladenKlick">
+               <graphic>
+                  <ImageView id="open" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../icons/oeffnen.gif" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+            <Button id="toggle_play_btn" fx:id="toggle_play_btn" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#playPauseKlick">
+               <graphic>
+                  <ImageView id="toggle_play" fx:id="toggle_play" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../icons/play.gif" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button id="stop_btn" fx:id="stop_btn" layoutX="98.0" layoutY="10.0" mnemonicParsing="false" onAction="#stoppKlick">
+               <graphic>
+                  <ImageView id="stop" fx:id="stop" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../icons/stop.gif" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button id="toggle_mute_btn" fx:id="toggle_mute_btn" layoutX="142.0" layoutY="10.0" mnemonicParsing="false" onAction="#lautsprecherKlick">
+               <graphic>
+                  <ImageView id="toggle_mute" fx:id="toggle_mute" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../icons/mute.gif" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+        </items>
+      </ToolBar>
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+      <children>
+            <SplitPane dividerPositions="0.29797979797979796" layoutX="14.0" layoutY="17.0" prefHeight="160.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+              <items>
+                <AnchorPane minHeight="0.0" minWidth="100.0" prefHeight="160.0" prefWidth="100.0">
+                     <children>
+                        <ListView fx:id="liste" layoutX="-13.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                     </children>
+                  </AnchorPane>
+                <AnchorPane minHeight="0.0" minWidth="400.0" prefHeight="160.0" prefWidth="100.0">
+                     <children>
+                        <MediaView fx:id="mediaview" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <viewport>
+                              <Rectangle2D />
+                           </viewport></MediaView>
+                     </children>
+                  </AnchorPane>
+              </items>
+            </SplitPane>
+      </children>
+    </AnchorPane>
+  </children>
+</VBox>
